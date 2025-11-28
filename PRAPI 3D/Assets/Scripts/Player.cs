@@ -6,15 +6,18 @@ using UnityEngine.Rendering;
 public class Player : MonoBehaviour
 {
     //Variables for movement.
-    [SerializeField] private float Speed = 5f;
-    [SerializeField] private float MouseSensitivity = 2f; 
+    [SerializeField] private float Speed = 5f; 
     private Vector3 MoveDirection;
     private float RotationY;
     //.
 
+    //Variables for input.
     PlayerInput InputForPlayer;
     InputAction MoveAction;
     InputAction LookAction;
+    InputAction EscapeAction;
+    private bool Escaped = false;
+    //.
 
     //Fires at start.
     private void Start()
@@ -23,6 +26,13 @@ public class Player : MonoBehaviour
         InputForPlayer = GetComponent<PlayerInput>();
         MoveAction = InputForPlayer.actions.FindAction("Move");
         LookAction = InputForPlayer.actions.FindAction("Look");
+        
+        EscapeAction = InputForPlayer.actions.FindAction("Escape");
+        //.
+
+        //Lock and hide mouse.
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         //.
     }
     //.
@@ -33,6 +43,23 @@ public class Player : MonoBehaviour
         //Fires movement and rotation.
         HandleMovement();
         HandleRotation();
+        //.
+        
+        //Mouse lock toggle.
+        if (EscapeAction.IsPressed()){
+            if (Escaped == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Escaped = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Escaped = true;
+            }
+        }
         //.
     }
     //.
@@ -56,7 +83,7 @@ public class Player : MonoBehaviour
     {
         //Gets mouse movement and converts to a rotation.
         Vector2 LookVector = LookAction.ReadValue<Vector2>();
-        RotationY += LookVector.x * MouseSensitivity;
+        RotationY += LookVector.x;
         //.
 
         //Rotates character.
