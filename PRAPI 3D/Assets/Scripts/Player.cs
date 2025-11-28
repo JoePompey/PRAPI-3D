@@ -1,4 +1,6 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
@@ -10,21 +12,37 @@ public class Player : MonoBehaviour
     private float RotationY;
     //.
 
+    PlayerInput InputForPlayer;
+    InputAction MoveAction;
+    InputAction LookAction;
+
+    //Fires at start.
+    private void Start()
+    {
+        //Gets inputs.
+        InputForPlayer = GetComponent<PlayerInput>();
+        MoveAction = InputForPlayer.actions.FindAction("Move");
+        LookAction = InputForPlayer.actions.FindAction("Look");
+        //.
+    }
+    //.
+
     //Fires every frame.
     void Update()
     {
+        //Fires movement and rotation.
         HandleMovement();
         HandleRotation();
+        //.
     }
     //.
 
     //Movement calculations and firing.
     private void HandleMovement()
     {
-        //Gets direction character should move in and normalises so diagonals aren't faster.
-        float Horizontal = Input.GetAxis("Horizontal");
-        float Vertical = Input.GetAxis("Vertical");
-        MoveDirection = new Vector3(Horizontal, 0f, Vertical).normalized;
+        //Gets direction character should move in.
+        Vector2 MoveVector = MoveAction.ReadValue<Vector2>();
+        MoveDirection = new Vector3(MoveVector.y, 0f, MoveVector.x * -1);
         //.
 
         //Moves in direction calculated above.
@@ -37,8 +55,8 @@ public class Player : MonoBehaviour
     private void HandleRotation()
     {
         //Gets mouse movement and converts to a rotation.
-        float MouseX = Input.GetAxis("Mouse X");
-        RotationY += MouseX * MouseSensitivity;
+        Vector2 LookVector = LookAction.ReadValue<Vector2>();
+        RotationY += LookVector.x * MouseSensitivity;
         //.
 
         //Rotates character.

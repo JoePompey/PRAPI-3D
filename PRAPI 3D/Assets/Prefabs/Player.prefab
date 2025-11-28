@@ -28,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 4149619373833806480}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18301274, y: 0.6830127, z: -0.18301274, w: 0.6830127}
-  m_LocalPosition: {x: -5, y: 3, z: 0}
+  m_LocalPosition: {x: -4.50437, y: 3, z: -0.06594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9097706377393934320}
+  m_Father: {fileID: 3960602319824888715}
   m_LocalEulerAnglesHint: {x: 30, y: 90, z: 0}
 --- !u!20 &4734990206357381061
 Camera:
@@ -43,7 +43,7 @@ Camera:
   m_GameObject: {fileID: 4149619373833806480}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -204,13 +204,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3048355831886353076, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7132160391392313039, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9033049631229745641}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8107813754349184852, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6877338318674109342}
+    - targetCorrespondingSourceObject: {fileID: 8107813754349184852, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7950458068480850843}
   m_SourcePrefab: {fileID: 100100000, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
 --- !u!1 &2632593001403054608 stripped
 GameObject:
@@ -230,9 +233,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   Speed: 5
-  MouseSensitivity: 2
---- !u!4 &9097706377393934320 stripped
+  MouseSensitivity: 1
+--- !u!114 &7950458068480850843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632593001403054608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &3960602319824888715 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3048355831886353076, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7132160391392313039, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
   m_PrefabInstance: {fileID: 6056326400268082500}
   m_PrefabAsset: {fileID: 0}
