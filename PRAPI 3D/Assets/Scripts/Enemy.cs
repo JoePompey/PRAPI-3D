@@ -1,16 +1,24 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform player;
+    private NavMeshAgent agent;
+
+    //Calls at start.
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = true;
     }
+    //.
 
-    // Update is called once per frame
+    //Calls every frame.
     void Update()
     {
+        agent.SetDestination(player.position);
         
     }
+    //.
 }

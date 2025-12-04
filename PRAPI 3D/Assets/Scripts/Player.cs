@@ -6,7 +6,8 @@ using UnityEngine.Rendering;
 public class Player : MonoBehaviour
 {
     //Variables for movement.
-    [SerializeField] private float Speed = 5f; 
+    [SerializeField] private float Speed = 5f;
+    [SerializeField] private Rigidbody rb;
     private Vector3 MoveDirection;
     private float RotationY;
     //.
@@ -70,10 +71,15 @@ public class Player : MonoBehaviour
         //Gets direction character should move in.
         Vector2 MoveVector = MoveAction.ReadValue<Vector2>();
         MoveDirection = new Vector3(MoveVector.y, 0f, MoveVector.x * -1);
+        Vector3 NewPosition = rb.position + MoveDirection * Speed * Time.deltaTime;
+        
+        Vector3 LocalMove = MoveDirection * Speed * Time.deltaTime;
+        Vector3 WorldMove = transform.TransformDirection(LocalMove);
         //.
 
         //Moves in direction calculated above.
-        transform.Translate(MoveDirection * Speed *  Time.deltaTime);
+        //---transform.Translate(MoveDirection * Speed *  Time.deltaTime, Space.Self);
+        rb.MovePosition(WorldMove);
         //.
     }
     //.
@@ -84,10 +90,12 @@ public class Player : MonoBehaviour
         //Gets mouse movement and converts to a rotation.
         Vector2 LookVector = LookAction.ReadValue<Vector2>();
         RotationY += LookVector.x;
+        Quaternion TargetRotation = Quaternion.Euler(0f, RotationY, 0f);
         //.
 
         //Rotates character.
-        transform.rotation = Quaternion.Euler(0f, RotationY, 0f);
+        //---transform.rotation = Quaternion.Euler(0f, RotationY, 0f);
+        rb.MoveRotation(TargetRotation);
         //.
     }
     //.
