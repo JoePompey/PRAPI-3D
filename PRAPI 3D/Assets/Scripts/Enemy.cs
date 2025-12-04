@@ -18,7 +18,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Update()
     {
         agent.SetDestination(player.position);
-        
     }
     //.
 }

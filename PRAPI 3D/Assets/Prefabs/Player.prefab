@@ -149,6 +149,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d5c367489e145554399110045a8608ea, type: 2}
+    - target: {fileID: 3028071646584356801, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028071646584356801, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3048355831886353076, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -226,30 +234,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8107813754349184852, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6877338318674109342}
+      addedObject: {fileID: 7950458068480850843}
     - targetCorrespondingSourceObject: {fileID: 8107813754349184852, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7950458068480850843}
+      addedObject: {fileID: 8547879878715357684}
   m_SourcePrefab: {fileID: 100100000, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
 --- !u!1 &2632593001403054608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8107813754349184852, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
   m_PrefabInstance: {fileID: 6056326400268082500}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6877338318674109342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2632593001403054608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbd667ab8e95b74c8c09134d86f2d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  rb: {fileID: 9081996674768511621}
-  Speed: 5
 --- !u!114 &7950458068480850843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +273,21 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 4734990206357381061}
+--- !u!114 &8547879878715357684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632593001403054608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbd667ab8e95b74c8c09134d86f2d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  Speed: 5
+  rb: {fileID: 9081996674768511621}
 --- !u!4 &3960602319824888715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7132160391392313039, guid: 6c83580ab5bcf984fa7c03e03e66f72a, type: 3}
